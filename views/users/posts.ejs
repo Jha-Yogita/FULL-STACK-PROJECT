@@ -1,0 +1,24 @@
+<% layout('../layouts/boilerplate') %>
+
+<div class="row">
+    <% if (posts.length > 0) { %>
+        <div class="div mt-3 mb-3"><h4>My Posts</h4></div>
+        <% for (let post of posts) { %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <a href="/listings/<%= post._id %>" class="listing-link">
+                    <div class="card card-posts" style="width: 100%">
+                        <img src="<%= post.image?.url || '/path/to/default_image.jpg' %>" class="card-img-top" alt="listing_image" style="height:18rem">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b><%= post.title %></b><br>
+                                ₹<%= post.price?.toLocaleString("en-IN") || 'Price not available' %>/night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <% } %>
+    <% } else { %>
+        <div class="col-6 offset-3 alert alert-info">You have no posts yet.</div>
+    <% } %>
+</div>

@@ -1,0 +1,30 @@
+<% layout('../layouts/boilerplate') %>
+
+<div class="review-box mt-3 flex-wrap justify-content-center">
+    <% if (listings && listings.length > 0) { %>
+        <h3 class="text-center mt-2">Your Reviews</h3>
+        <br>
+        <div class="d-flex flex-wrap justify-content-center">
+            <% listings.forEach(listing => { %>  
+                <% if (listing.reviews && listing.reviews.length > 0) { %>
+                    <% listing.reviews.forEach(review => { %>  
+                        <a href="/listings/<%=listing._id%>" style="text-decoration: none;">
+                        <div class="card ms-3 mb-3 review-card" style="width: 30rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>@<%= review.author ? review.author.username : 'Anonymous' %></b></h5>
+                                <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+                                <p class="card-text"><%= review.comment %></p>
+                                <form method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                    <button class="btn btn-dark card-btn">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        </a>
+                    <% }) %>
+                <% } %>
+            <% }) %>
+        </div>
+    <% } else { %>
+    <div class="alert alert-info">You haven't written any reviews yet.</div>
+    <% } %>
+</div>

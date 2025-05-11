@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md bg-body-white sticky-top ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link explore" href="/listings">Explore</a>
+          
+        </div>
+        <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search" onsubmit="return search(event)">
+            <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn search-btn add-btn" type="submit" >Search</button>
+          </form>
+
+        </div>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link create" href="/listings/new">Create Listings</a>
+          <% if (currUser) { %>
+            <div class="btn-group">
+              <button class="btn btn-secondary add-btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/myposts">My Listings</a></li>
+                <li><a class="dropdown-item" href="/myreviews">My Reviews</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/logout"><b>Logout</b></a></li>
+              </ul>
+            </div>
+            
+          <% } %> <% if(!currUser) {%>
+            <a class="nav-link status" href="/signup"><b>Signup</b></a>
+            <a class="nav-link status" href="/login"><b>Login</b></a>
+          <% } %>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
