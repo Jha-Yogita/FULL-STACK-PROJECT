@@ -7,7 +7,7 @@ const{validateListing}=require("../middleware.js");
 const listingSchema=require("../controllers/listing.js");
 const multer=require("multer");
 const {storage}=require("../cloudConfig.js");
-const Listing = require("../WEB-D-FULL-STACK-PROJECT/models/listing.js");
+const Listing = require("../models/listing.js");
 const upload=multer({storage});
 
 router
