@@ -1,11 +1,11 @@
 const express=require("express");
 const router=express.Router();
-const User=require("../WEB-D-FULL-STACK-PROJECT/models/user.js");
-const Listing=require("../WEB-D-FULL-STACK-PROJECT/models/user.js");
+const User=require("../models/user.js");
+const Listing=require("../models/user.js");
 const wrapAsync=require("../utils/wrapAsync")
 const passport = require("passport");
 const {saveRedirectUrl}=require("../middleware.js");
-const userController=require("../WEB-D-FULL-STACK-PROJECT/controllers/user.js");
+const userController=require("../controllers/user.js");
 const mongoose=require("mongoose");
 
 router
