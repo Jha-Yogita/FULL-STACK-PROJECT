@@ -1,6 +1,6 @@
 
-const Listing=require("./WEB-D-FULL-STACK-PROJECT/models/listing.js");
-const Review=require("./WEB-D-FULL-STACK-PROJECT/models/review.js");
+const Listing=require("./models/listing.js");
+const Review=require("./models/review.js");
 const {listingSchema,reviewSchema}=require("./Schema.js");
 const ExpressError=require("./utils/ExpressError");
 module.exports.isLoggedIn=(req,res,next)=> {
